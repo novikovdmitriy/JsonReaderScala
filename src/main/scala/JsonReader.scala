@@ -18,9 +18,6 @@ object JsonReader extends App {
     val filename = args(0)
 
   val winemags = sc.textFile(filename)
-      .flatMap(s => s.split("\n"))
       .map(s => parse(s).extract[Winemag])
-      .collect()
-
-  winemags.foreach { println }
+      .foreach { println }
 }
